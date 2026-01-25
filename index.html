@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .image-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            background-color: #fff;
+            transition: transform 0.2s;
+        }
+
+        .image-card:hover {
+            transform: scale(1.05);
+        }
+
+        .image-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .price-tag {
+            display: block;
+            padding: 8px;
+            font-size: 1.2em;
+            color: #333;
+            background-color: #f8f8f8;
+            border-top: 1px solid #ccc;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery-item {
+            text-align: center;
+        }
+
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .price {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>A. C. Bhaktivedanta Swami Prabhupada / Books</h1>
+    </header>
+    <main>
+        <div class="gallery">
+
+            <!-- Add more gallery items as needed -->
+        </div>
+    </main>
+    <script>
+        const galleryItems = [
+            { src: 'img/BG_Eng.jfif', alt: 'Image 1', price: '$10.00' },
+            { src: 'img/OWK.jfif', alt: 'Image 2', price: '$15.00' },
+            { src: 'img/SR.jfif', alt: 'Image 3', price: '$20.00' },
+            { src: 'img/TLC.jfif', alt: 'Image 4', price: '$25.00' },
+            { src: 'img/BG.jfif', alt: 'Image 5', price: '$12.00' },
+            { src: 'img/PQPA.jfif', alt: 'Image 6', price: '$18.00' },
+            { src: 'img/BG_Eng.jfif', alt: 'Image 7', price: '$22.00' },
+          ];
+
+        const galleryContainer = document.querySelector('.gallery');
+
+        galleryItems.forEach(item => {
+            const galleryItem = document.createElement('div');
+            galleryItem.classList.add('gallery-item');
+            galleryItem.innerHTML = `
+        <img src="${item.src}" alt="${item.alt}">
+        <div class="price">${item.price}</div>
+    `;
+            galleryContainer.appendChild(galleryItem);
+        });
+    </script>
+</body>
+
+</html>
